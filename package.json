@@ -1,12 +1,11 @@
 {
   "name": "sound-timer-demo",
-  "homepage": "https://maito1201.github.io/sound-timer-demo/",
   "private": true,
   "version": "0.0.0",
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "tsc && vite build",
+    "build": "tsc && vite build --base=./",
     "preview": "vite preview",
     "lint": "eslint --fix ./src/**/*.tsx"
   },
