@@ -11,14 +11,16 @@ function App() {
   const [timer, setTimer] = useState<DateTime>()
   const [now, setNow] = useState(DateTime.fromJSDate(new Date()))
   useEffect(() => {
+    let played = false
     const interval = setInterval(() => {
       const newNow = DateTime.fromJSDate(new Date())
       setNow(newNow)
-      if (newNow.toUnixInteger() === timer?.toUnixInteger()) {
+      if (!played && newNow.toUnixInteger() === timer?.toUnixInteger()) {
         play()
         setMusicStart(true)
+        played = true
       }
-    }, 1000)
+    }, 50)
     return () => clearInterval(interval)
   }, [timer, play])
 
